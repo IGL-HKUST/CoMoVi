@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoMoVi: Co-Generation of 3D Human Motions and Realistic Videos</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_package/android-chrome-512x512.png">
+
+    <link rel="stylesheet" href="css/bootstrap-4.4.1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/avenir-next/stylesheet.css">
+    <link rel="stylesheet" href="fonts/segoe-print/stylesheet.css">
+    <link rel="stylesheet" href="css/window.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/selection_panel.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="css/bulma-slider.min.css">
+    <!-- <link rel="stylesheet" href="css/bulma.min.css"> -->
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cards.css">
+
+    <script src="js/window.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/selection_panel.js"></script>
+    <script src="js/generation.js"></script>
+    <script src="js/editing.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="js/fontawesome.all.min.js"></script>
+    <script src="js/bulma-carousel.min.js"></script>
+    <script src="js/bulma-slider.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/video_comparison.js" defer></script>
+    <script src="js/cards.js" defer></script>
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2><b><span class="x-gradient-font">CoMoVi</span>: Co-Generation of 3D Human Motions and Realistic Videos</b></h2>
+            <br>
+            <h5>
+              <a href="https://afterjourney00.github.io/" target="_blank">Chengfeng Zhao</a><sup>1</sup>,
+              <a href="https://github.com/Samir1110" target="_blank">Jiazhi Shu</a><sup>2</sup>,
+              <a href="https://knoxzhao.github.io/" target="_blank">Yubo Zhao</a><sup>1</sup>,
+              <a href="https://scholar.google.com/citations?user=nhbSplwAAAAJ&hl=en" target="_blank">Tianyu Huang</a><sup>3</sup>,
+              <a href="https://github.com/jiah-cloud" target="_blank">Jiahao Lu</a><sup>1</sup>,
+              <br>
+              <a href="https://scholar.google.com/citations?user=Y8AU3RkAAAAJ&hl=en" target="_blank">Zekai Gu</a><sup>1</sup>,
+              <a href="https://github.com/ChernweiRen" target="_blank">Chengwei Ren</a><sup>1</sup>,
+              <a href="https://frank-zy-dou.github.io/" target="_blank">Zhiyang Dou</a><sup>4</sup>,
+              <a href="https://chingswy.github.io/" target="_blank">Qing Shuai</a><sup>5,&dagger;</sup>,
+              <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a><sup>1,&dagger;</sup>
+            </h5>
+            <h5>
+            <p style="text-align: center">
+              <sup>1</sup>The Hong Kong University of Science and Technology &nbsp;&nbsp;
+              <sup>2</sup>South China University of Technology &nbsp;&nbsp;
+              <br>
+              <sup>3</sup>The Chinese University of Hong Kong &nbsp;&nbsp;
+              <sup>4</sup>Massachusetts Institute of Technology &nbsp;&nbsp;
+              <sup>5</sup>Zhejiang University &nbsp;&nbsp;
+              <br>
+              <i><sup>&dagger;</sup>Corresponding author</i>
+            </p>
+            </h5>
+            <div class="row justify-content-center">
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/IGL-HKUST/CoMoVi" role="button"  target="_blank">
+                  <i class="ai ai-arxiv"></i> Paper </a> </p>
+              </div>
+              <!-- <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fab fa-youtube"></i> Video(coming soon) </a> </p>
+              </div> -->
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/IGL-HKUST/CoMoVi" role="button"  target="_blank">
+                  <i class="fab fa-github"></i> Code </a> </p>
+              </div>
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://huggingface.co/datasets/AfterJourney/CoMoVi-50K" role="button"  target="_blank">
+                  <img src="images/hf.png" alt="Dataset" style="width: 1em; height: 1em; vertical-align: middle; display: inline-block;"> Data </a> </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="row" style="margin-bottom:5px">
+            <div class="col" style="text-align:center">
+              <img src="images/teaser.png" width="90%">
+            </div>
+          </div>
+          <div id="abstract" class="x-gradient-block">
+            In this paper, we find that the generation of 3D human motions and 2D human videos is intrinsically coupled. 3D motions provide the structural prior for plausibility and consistency in videos, while pre-trained video models offer strong generalization capabilities for motions, which necessitate coupling their generation processes. Based on this, we present CoMoVi, a co-generative framework that couples two video diffusion models (VDMs) to generate 3D human motions and videos synchronously within a single diffusion denoising loop. To achieve this, we first propose an effective 2D human motion representation that can inherit the powerful prior of pre-trained VDMs. Then, we design a dual-branch diffusion model to couple human motion and video generation process with mutual feature interaction and 3D-2D cross attentions. Moreover, we curate CoMoVi-50K, a large-scale real-world human video dataset with text and motion annotations, covering diverse and challenging human motions. Extensive experiments demonstrate the effectiveness of our method in both 3D human motion and video generation tasks.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- motivation -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Motivation</div></div>
+          <img src="images/motivation.png" width="90%">
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        There exists a strong coupling relationship between 3D human motion and video generation. High-quality 3D motion can derive high-fidelity generated videos, and reversely, the powerful prior of VDMs can enhance the generalization capabilities of 3D motion generation.
+      </p>
+    </div>
+  </section>
+
+  <!-- pipeline -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Pipeline</div></div>
+          <img src="images/pipeline.png" width="90%">
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        CoMoVi consists of an effective 2D human motion representation to encode 3D motion information in pixel space, and a dual-branch diffusion model extended from Wan2.2-I2V-5B to couple 2D motion and RGB video sequence denoising process with 3D-2D cross-attention modules to concurrently generate 3D human motion.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Results -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Our Results</div></div>
+      
+          <div class="cards-container" id="text2asset-cards">
+            <div class="cards-navigation prev" id="text2asset-prev">
+              <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </div>
+            <div class="cards-wrapper" id="text2asset-wrapper">
+              <!-- Cards will be generated by JavaScript -->
+            </div>
+            <div class="cards-navigation next" id="text2asset-next">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- comparison -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Qualitative Comparisons</div></div>
+          <div class="comparison-section">
+            <div class="comparison-toggle">
+              <div class="comparison-tab active" data-target="video-comparison-wrapper">Video Generation Comparison</div>
+              <div class="comparison-tab" data-target="motion-comparison-panel">Motion Generation Comparison</div>
+            </div>
+            <div class="comparison-content">
+              <div class="video-comparison-wrapper" id="video-comparison-container">
+                <div class="cards-navigation prev" id="video-comparison-prev">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                  </svg>
+                </div>
+                <div class="video-comparison-panels" id="video-comparison-panels-wrapper">
+                  <div id="video-comparison-panel-1" class="comparison-panel">
+                    <div class="triple-compare" id="video-triple-compare-1">
+                      <canvas id="video-triple-canvas-1"></canvas>
+                      <video id="video-compare-1-1" autoplay muted loop playsinline>
+                        <source src="video/cogx_6ae2ee.mp4" type="video/mp4">
+                      </video>
+                      <video id="video-compare-1-2" autoplay muted loop playsinline>
+                        <source src="video/ours_6ae2ee.mp4" type="video/mp4">
+                      </video>
+                      <video id="video-compare-1-3" autoplay muted loop playsinline>
+                        <source src="video/wan22_6ae2ee.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div id="video-comparison-panel-2" class="comparison-panel">
+                    <div class="triple-compare" id="video-triple-compare-2">
+                      <canvas id="video-triple-canvas-2"></canvas>
+                      <video id="video-compare-2-1" autoplay muted loop playsinline>
+                        <source src="video/cogx_312114.mp4" type="video/mp4">
+                      </video>
+                      <video id="video-compare-2-2" autoplay muted loop playsinline>
+                        <source src="video/ours_312114.mp4" type="video/mp4">
+                      </video>
+                      <video id="video-compare-2-3" autoplay muted loop playsinline>
+                        <source src="video/wan22_312114.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+                <div class="triple-compare-labels">
+                  <div class="triple-label triple-label-left">👈 CogVideoX1.5-I2V-5B</div>
+                  <div class="triple-label triple-label-center">Ours</div>
+                  <div class="triple-label triple-label-right">👉 Wan2.2-I2V-5B</div>
+                </div>
+                <div class="cards-navigation next" id="video-comparison-next">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div id="motion-comparison-panel" class="comparison-panel">
+                <div class="comparison-grid">
+                  <div class="comparison-item">
+                    <video autoplay muted loop playsinline>
+                      <source src="video/cogx_6ae2ee.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="comparison-item">
+                    <video autoplay muted loop playsinline>
+                      <source src="video/ours_6ae2ee.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="comparison-item">
+                    <video autoplay muted loop playsinline>
+                      <source src="video/wan22_6ae2ee.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="comparison-item">
+                    <video autoplay muted loop playsinline>
+                      <source src="video/wan22_6ae2ee.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        We present input garment geometries and simulation results of each method. Note that we select garment samples that are closest to our dataset within each method's data domain to fairly evaluate the simulation quality.
+      </p>
+    </div>
+  </section>
+  
+  <!-- CoMoVi Dataset -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">CoMoVi-50K Dataset</div></div>
+      
+          <div class="cards-container" id="dataset-results-cards">
+            <div class="cards-navigation prev" id="dataset-results-prev">
+              <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </div>
+            <div class="cards-wrapper" id="dataset-results-wrapper">
+              <!-- Cards will be generated by JavaScript -->
+            </div>
+            <div class="cards-navigation next" id="dataset-results-next">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-left">
+        🎇 CoMoVi-50K dataset is featured by:
+      </p>
+      <ul class="text-left">
+        <li>High-quality human-centric videos sourced from <a href="https://koala36m.github.io/">Koala-36M</a>, <a href="https://humanvid.github.io/">HumanVid</a>, and publicly available Internet videos</li>
+        <li>Well-annotated and manually double-checked human motion descriptions labeled by Gemini-2.5-Pro</li>
+        <li>Curated 3D human motion annotations labeled by <a href="https://camerahmr.is.tue.mpg.de/">CameraHMR</a> and post-processing</li>
+        <li>Realistic background scene image edited through <a href="https://github.com/geekyutao/Inpaint-Anything">Inpaint-Anything</a></li>
+      </ul>
+      <p class="text-left">
+        🔎 What you can do using CoMoVi-50K dataset:
+      </p>
+      <ul class="text-left">
+        <li>Human mesh recovery / Human pose estimation</li>
+        <li>Text-driven human motion synthesis</li>
+        <li>Human video generation</li>
+        <li>Human motion captioning, understanding and reasoning</li>
+        <li>Human motion prediction</li>
+        <li>Scene-conditioned human motion generation</li>
+        <li>Human image / video inpainting</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- citation -->
+  <section>
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+        <div class="x-section-title"><div class="x-gradient-font">Citation</div></div>
+        <p class="bibtex x-gradient-block">
+@InProceedings{zhao2026comovi,
+  title   = {CoMoVi: Co-Generation of 3D Human Motions and Realistic Videos},
+  author  = {Zhao, Chengfeng and Shu, Jiazhi and Zhao, Yubo and Huang, Tianyu and Lu, Jiahao and Gu, Zekai and Ren, Chengwei and Dou, Zhiyang and Shuai, Qing and Liu, Yuan},
+  journal = {arXiv preprint arXiv:},
+  year    = {2026}
+}
+        </p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- bottom bar -->
+  <section>
+  <div id="bottombar">
+    <div><b>CoMoVi: Co-Generation of 3D Human Motions and Realistic Videos</b></div>
+    <div>Thanks to <a href="https://lioryariv.github.io/" target="_blank">this website</a> and <a href="https://jeffreyxiang.github.io/" target="_blank">this website</a> for the awesome template</div>
+  </div>
+  </section>
+
+</html>

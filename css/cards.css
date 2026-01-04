@@ -1,0 +1,484 @@
+.cards-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.cards-wrapper {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 8px 0;
+    /* 确保容器宽度正好显示两个卡片 */
+    width: 100%;
+}
+
+
+.cards-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.cards-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.generation-card {
+    flex: 0 0 auto;
+    /* 计算宽度：容器宽度减去gap后除以2，确保只显示两个卡片 */
+    width: calc((100% - 16px) / 2);
+    min-width: calc((100% - 16px) / 2);
+    max-width: calc((100% - 16px) / 2);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.generation-card:hover {
+    transform: translateY(-4px);
+    /* 阴影：四个方向均匀扩散，只扩散一点点 */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.generation-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    /* 改为宽大于高的比例，使用16:9 */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.generation-card-image-wrapper video,
+.generation-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.generation-card-label {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.3px;
+    z-index: 2;
+}
+
+.generation-card-content {
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 60px;
+}
+
+.generation-card-description {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+    text-align: left;
+    font-weight: 500;
+    padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
+}
+
+.generation-card-prompt-image {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.generation-card-prompt-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cards-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cards-navigation:hover {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.cards-navigation.prev {
+    left: -20px;
+}
+
+.cards-navigation.next {
+    right: -20px;
+}
+
+.cards-navigation.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.cards-navigation.disabled:hover {
+    transform: translateY(-50%);
+}
+
+.cards-navigation svg {
+    width: 20px;
+    height: 20px;
+    fill: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cards-container {
+        padding: 0 50px;
+    }
+    
+    .generation-card {
+        width: calc((100% - 16px) / 2);
+        min-width: calc((100% - 16px) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+    
+    .cards-navigation {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .generation-card {
+        width: calc((100% - 16px) / 2);
+        min-width: calc((100% - 16px) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+}
+
+/* Card Modal Styles */
+.card-modal-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 720px;
+    padding: 0;
+    align-items: stretch;
+}
+
+.card-modal-video {
+    flex: 1;
+    min-width: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-modal-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.card-modal-info {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.card-modal-prompt {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.card-modal-prompt-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 4px;
+    padding-left: 4px;
+}
+
+.card-modal-prompt-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 0 1 auto;
+    overflow-y: auto;
+}
+
+.card-modal-prompt-image-wrapper {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.card-modal-prompt-image {
+    width: 100%;
+    flex: 1;
+    overflow: visible;
+    background: transparent;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-modal-prompt-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Responsive modal */
+@media (max-width: 900px) {
+    .card-modal-container {
+        flex-direction: column;
+        min-width: auto;
+        max-width: 90vw;
+    }
+    
+    .card-modal-video {
+        width: 100%;
+    }
+    
+    .card-modal-info {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+/* Comparison tabs for Qualitative Comparisons section */
+.comparison-section {
+    margin-top: 16px;
+}
+
+.comparison-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.comparison-tab {
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: #eeeeee;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.comparison-tab:hover {
+    background: #e0e0e0;
+}
+
+.comparison-tab.active {
+    background: #333;
+    color: #ffffff;
+}
+
+.comparison-content {
+    width: 100%;
+}
+
+.comparison-panel {
+    display: none;
+}
+
+.comparison-panel.active {
+    display: block;
+}
+
+.video-comparison-wrapper {
+    display: block;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.comparison-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Video comparison wrapper with navigation */
+.video-comparison-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.video-comparison-panels {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    gap: 0;
+    width: 100%;
+    position: relative;
+}
+
+.video-comparison-panels::-webkit-scrollbar {
+    display: none;
+}
+
+.video-comparison-panels {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.video-comparison-panels .comparison-panel {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.video-comparison-wrapper .cards-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.video-comparison-wrapper .cards-navigation.prev {
+    left: -20px;
+}
+
+.video-comparison-wrapper .cards-navigation.next {
+    right: -20px;
+}
+
+/* Triple video comparison in a single canvas with two draggable split lines */
+.triple-compare {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.triple-compare canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    min-height: 200px;
+    background-color: #000;
+}
+
+.triple-compare video {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.triple-compare-labels {
+    width: 100%;
+    max-width: 900px;
+    margin: 8px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.triple-label {
+    flex: 1;
+    text-align: center;
+}
+
+.triple-label-left {
+    text-align: left;
+}
+
+.triple-label-center {
+    text-align: center;
+}
+
+.triple-label-right {
+    text-align: right;
+}
+

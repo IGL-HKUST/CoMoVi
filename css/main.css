@@ -1,0 +1,542 @@
+/* Costomize Slider */
+.slider-navigation-next {
+    margin-top: -32px !important;
+    color: white !important;
+    background: #252525 !important;
+}
+
+.slider-navigation-previous {
+    margin-top: -32px !important;
+    color: white !important;
+    background: #252525 !important;
+}
+
+.slider-page {
+    color: white !important;
+    background: #252525 !important;
+}
+
+* {
+    font-family: 'Avenir', 'Avenir Next Cyr', 'Config', 'Microsoft YaHei';
+}
+
+a {
+    color: #6567C9;
+    text-decoration: none;
+}
+  
+a.link:focus, a.link:hover {
+    color: #ff9349;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    position: relative;
+    margin: 16px;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+p span {
+    font-weight: 600;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.x-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.x-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.x-center-text {
+    margin: 16px 32px;
+    text-align: center;
+}
+
+.x-left-align {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: nowrap;
+}
+
+.x-right-align {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-wrap: nowrap;
+}
+
+.x-flex-spacer {
+    flex: 1;
+}
+
+.x-labels {
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row-reverse;
+}
+
+.x-label {
+    height: 20px;
+    padding: 0px 6px;
+    margin: 0px 2px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    background: #6567C9;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.x-button {
+    height: 40px;
+    padding: 0px 14px;
+    background: #6567C9;
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.x-button.small {
+    height: 32px;
+    padding: 0px 12px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.x-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+.x-gradient-font {
+    background: linear-gradient(107.54deg, #000000.39%, #525252 51.23%, #969696 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.x-gradient-block {
+    color: #3f3f3f;
+    background: linear-gradient(107.54deg, #d9d9d9 .39%, #f0f0f0 51.23%, #ffffff 100%);
+    border-radius: 16px;
+}
+
+.x-gradient-border {
+    position: relative;
+    padding: 1px;
+    margin: 3px;
+    border: 3px;
+    background: white;
+    background-clip: padding-box;
+    border: solid border transparent;
+    border-radius: 16px;
+}
+
+.x-gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -3px;
+    border-radius: 16px;
+    background: linear-gradient(107.54deg, #0078d4 .39%, #8661c5 51.23%, #ff9349 100%);
+}
+
+.x-section-title {
+    margin: 64px 0px 16px 0px;
+    padding-left: 16px;
+    color: black;
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.x-section-title.small {
+    margin: 8px 0px 4px 0px;
+    padding-left: 4px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.x-note {
+    color: gray;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.x-card {
+    position: relative;
+    margin: 8px;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+}
+
+.x-card.clickable {
+    cursor: pointer;
+}
+
+.x-card.clickable:hover {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+}
+
+.x-card .caption {
+    margin: 8px 0px;
+    height: 80px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.x-handwriting {
+    width: 100%;
+    font-family: 'Segoe Print';
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: black;
+    text-align: justify;
+}
+
+.x-image-prompt {
+    height: calc(100% - 2px);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.x-image-prompt img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#main {
+    max-width: 1000px;
+    margin: 0px auto;
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+
+#logo {
+    width: 70%;
+    min-width: 350px;
+    margin: 0px auto;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: gray;
+}
+
+#title {
+    margin-bottom: 32px;
+    color: black;
+    font-size: 54px;
+    font-weight: 700;
+    /* white-space: nowrap; */
+    text-align: center;
+}
+
+#authors {
+    width: 80%;
+    margin: 8px auto;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* white-space: nowrap; */
+}
+
+#authors div {
+    margin: 0px 16px;
+}
+
+#institution {
+    margin: 8px 32px;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* white-space: nowrap; */
+}
+
+#institution div {
+    margin: 0px 16px;
+}
+
+#conference {
+    margin: 16px 32px;
+    color: gray;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#abstract {
+    position: relative;
+    margin: 32px;
+    padding: 16px 24px;
+    color: #3f3f3f;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: justify;
+    border-radius: 16px;
+}
+
+#abstract::before {
+    content: "Abstract:";
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+
+#links {
+    margin: 16px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* white-space: nowrap; */
+}
+
+#links div {
+    margin: 4px 8px;
+    width: 140px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#links a {
+    width: 100px;
+    height: 20px;
+    padding: 8px 16px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(107.54deg, #0078d4 .39%, #8661c5 51.23%, #ff9349 100%) fixed;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#links a:hover {
+    width: 105px;
+    height: 21px;
+    font-size: 17px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
+}
+
+#links a.disabled {
+    background-color: rgb(192, 192, 192);
+}
+
+#links a.disabled:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+#links a::before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    margin-right: 8px;
+}
+
+#links #paper::before {
+    content: "\e000";
+    font-size: 18px;
+}
+
+#links #arxiv::before {
+    content: "\e001";
+    font-size: 20px;
+}
+
+#links #code::before {
+    content: "\e002";
+    font-size: 20px;
+}
+
+#links #poster::before {
+    content: "\e004";
+    font-size: 20px;
+}
+
+#links #video::before {
+    content: "\e003";
+    font-size: 20px;
+}
+
+#links #demo::before {
+    content: "\e005";
+    font-size: 20px;
+}
+
+#teaser {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* #teaser::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 100%;
+    background: gray;
+    opacity: 0.5;
+    z-index: -1;
+} */
+
+#teaser .label div {
+    height: 100%;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 150%;
+    text-align: center;
+}
+
+#teaser div {
+    height: 100%;
+}
+
+
+/* .section::before {
+    content: "";
+    position: relative;
+    left: -32px;
+    width: 2px;
+    height: 32px;
+    background-color: rgb(32, 163, 196);
+}
+
+.section::after {
+    content: "";
+    position: relative;
+    right: -32px;
+    width: 2px;
+    height: 32px;
+    background-color: rgb(32, 163, 196);
+} */
+/* 
+.figure {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.figure div {
+    margin-top: 4px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+} */
+
+.bibtex {
+    margin: 32px 96px;
+    padding: 0px 24px;
+    font-family: consolas, monospace;
+    white-space: pre;
+    text-wrap: wrap;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    text-align: justify;
+}
+
+#bottombar {
+    position: relative;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    padding: 0px 10%;
+    background: linear-gradient(107.54deg, #000000.39%, #252525 51.23%, #525252 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+#bottombar div {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#bottombar div span {
+    font-weight: 700;
+}
