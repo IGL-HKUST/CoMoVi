@@ -97,6 +97,7 @@
     font-size: 13px;
     line-height: 1.5;
     color: #333;
+    background: #fff;
     text-align: left;
     font-weight: 500;
     padding: 0;
@@ -215,7 +216,7 @@
     overflow: hidden;
     background: #000;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    aspect-ratio: 16 / 9;
+    /* aspect-ratio: 16 / 9; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,7 +248,7 @@
 .card-modal-prompt-title {
     font-size: 20px;
     font-weight: 700;
-    color: black;
+    color: #333;
     margin-bottom: 4px;
     padding-left: 4px;
 }
@@ -258,7 +259,7 @@
     color: #333;
     font-weight: 500;
     padding: 16px;
-    background: white;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
@@ -320,6 +321,7 @@
 
 .comparison-toggle {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 12px;
@@ -328,6 +330,8 @@
 
 .comparison-tab {
     padding: 6px 16px;
+    height: 32px;
+    min-height: 32px;
     border-radius: 999px;
     background: #eeeeee;
     color: #333;
@@ -336,6 +340,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    width: auto;
+    flex-shrink: 0;
 }
 
 .comparison-tab:hover {
@@ -356,7 +366,7 @@
 }
 
 .comparison-panel.active {
-    display: block;
+    display: flex;
 }
 
 .video-comparison-wrapper {
@@ -410,7 +420,13 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.video-comparison-panels .comparison-panel.active {
+    display: flex;
 }
 
 .video-comparison-wrapper .cards-navigation {
@@ -480,5 +496,130 @@
 
 .triple-label-right {
     text-align: right;
+}
+
+/* Comparison prompt box styles */
+.comparison-prompt-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 20px 22px 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: #333 rgba(0, 0, 0, 0.05);
+    min-height: 54px;
+    height: 54px;
+    max-height: 54px;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.comparison-prompt-box:active {
+    cursor: grabbing;
+}
+
+/* 左侧固定装饰条 */
+.comparison-prompt-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #000000 0%, #525252 51.23%, #969696 100%);
+    border-radius: 12px 0 0 12px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.comparison-prompt-box::-webkit-scrollbar {
+    height: 6px;
+}
+
+.comparison-prompt-box::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin: 8px 20px;
+}
+
+.comparison-prompt-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.comparison-prompt-box::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #5568d3 0%, #6a4190 100%);
+}
+
+.prompt-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+    padding-left: 12px;
+    text-align: left;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: min-content;
+    letter-spacing: 0.01em;
+    margin: 0;
+    align-self: flex-start;
+    vertical-align: top;
+}
+
+/* Responsive design for prompt box */
+@media (max-width: 768px) {
+    .comparison-prompt-box {
+        padding: 14px 16px 20px 20px;
+        min-height: 52px;
+        height: 52px;
+        max-height: 52px;
+    }
+    
+    .prompt-text {
+        font-size: 14px;
+        line-height: 1.5;
+        padding-left: 10px;
+    }
+    
+    .comparison-prompt-box::-webkit-scrollbar {
+        height: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comparison-prompt-box {
+        padding: 12px 14px 18px 18px;
+        border-radius: 10px;
+        min-height: 50px;
+        height: 50px;
+        max-height: 50px;
+    }
+    
+    .prompt-text {
+        font-size: 13px;
+        line-height: 1.5;
+        padding-left: 8px;
+    }
+    
+    .comparison-prompt-box::before {
+        width: 3px;
+    }
+    
+    .comparison-prompt-box::-webkit-scrollbar {
+        height: 4px;
+    }
 }
 

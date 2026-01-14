@@ -180,9 +180,15 @@ function initComparisonTabs() {
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const targetId = tab.getAttribute('data-target');
-      // 切换 tab 激活状态
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+      // 切换 tab 激活状态 - 只在同一个 comparison-toggle 内的 tabs
+      const toggleContainer = tab.closest('.comparison-toggle');
+      if (toggleContainer) {
+        toggleContainer.querySelectorAll('.comparison-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      } else {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      }
       
       // 切换 panel 显示
       // 处理 video-comparison-wrapper 的特殊情况
@@ -191,7 +197,72 @@ function initComparisonTabs() {
         const motionPanel = document.getElementById('motion-comparison-panel');
         if (wrapper) wrapper.style.display = 'block';
         if (motionPanel) motionPanel.classList.remove('active');
-      } else {
+      } 
+      // 处理 motion-*-wrapper (cards-container) 的情况
+      else if (targetId && targetId.startsWith('motion-') && targetId.endsWith('-wrapper')) {
+        // 找到包含该 tab 的 comparison-content 容器
+        const comparisonContent = tab.closest('.comparison-section')?.querySelector('.comparison-content');
+        if (comparisonContent) {
+          // 隐藏该 comparison-content 内的所有 motion-*-wrapper (cards-container)
+          const allMotionWrappers = comparisonContent.querySelectorAll('[id^="motion-"][id$="-wrapper"]');
+          allMotionWrappers.forEach(wrapper => {
+            wrapper.style.display = 'none';
+          });
+        }
+        // 显示目标 wrapper
+        const targetWrapper = document.getElementById(targetId);
+        if (targetWrapper) {
+          targetWrapper.style.display = 'block';
+        }
+      }
+      // 处理 dataset-category-*-wrapper (cards-container) 的情况
+      else if (targetId && targetId.startsWith('dataset-category-') && targetId.endsWith('-wrapper')) {
+        // 找到包含该 tab 的 comparison-content 容器
+        const comparisonContent = tab.closest('.comparison-section')?.querySelector('.comparison-content');
+        if (comparisonContent) {
+          // 隐藏该 comparison-content 内的所有 dataset-category-*-wrapper (cards-container)
+          const allCategoryWrappers = comparisonContent.querySelectorAll('[id^="dataset-category-"][id$="-wrapper"]');
+          allCategoryWrappers.forEach(wrapper => {
+            // 暂停隐藏容器中的视频
+            if (typeof pauseAllVideosInContainer === 'function') {
+              pauseAllVideosInContainer(wrapper.id);
+            }
+            wrapper.style.display = 'none';
+          });
+        }
+        // 显示目标 wrapper
+        const targetWrapper = document.getElementById(targetId);
+        if (targetWrapper) {
+          // 移除内联的 display: none 样式（如果存在），然后设置为 block
+          targetWrapper.style.display = '';
+          targetWrapper.style.display = 'block';
+          targetWrapper.style.visibility = 'visible';
+          
+          // 确保 cards wrapper 正确显示
+          const cardsWrapper = targetWrapper.querySelector('.cards-wrapper');
+          if (cardsWrapper) {
+            cardsWrapper.style.display = '';
+            cardsWrapper.style.display = 'flex';
+            cardsWrapper.style.visibility = 'visible';
+          }
+          
+          // 使用双重 requestAnimationFrame 确保在浏览器完成渲染后再更新导航按钮和恢复视频
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              // 更新导航按钮状态（如果函数可用）
+              if (typeof updateNavigationButtons === 'function') {
+                updateNavigationButtons(targetId);
+              }
+              // 恢复可见容器中的视频加载
+              if (typeof resumeVisibleVideosInContainer === 'function') {
+                resumeVisibleVideosInContainer(targetId);
+              }
+            });
+          });
+        }
+      } 
+      // 处理其他 comparison-panel 的情况
+      else {
         const wrapper = document.querySelector('.video-comparison-wrapper');
         const targetPanel = document.getElementById(targetId);
         if (wrapper) wrapper.style.display = 'none';
@@ -474,6 +545,9 @@ function initAllTripleVideoCompare() {
   // 初始化每个面板
   initSingleTripleVideoCompare('1');
   initSingleTripleVideoCompare('2');
+  initSingleTripleVideoCompare('3');
+  initSingleTripleVideoCompare('4');
+  initSingleTripleVideoCompare('5');
   
   // 初始化 navigation 按钮
   initVideoComparisonNavigation();
