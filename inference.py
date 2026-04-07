@@ -84,8 +84,7 @@ if __name__ == "__main__":
     # model configuration
     config_path             = "config/wan2.2/wan_civitai_5b.yaml"
     model_name              = "checkpoint/Wan2.2-TI2V-5B"
-    # transformer_path        = "checkpoint/comovi_/diffusion_pytorch_model.safetensors"
-    transformer_path        = "checkpoint/comovi_nov_1000/diffusion_pytorch_model.safetensors"
+    transformer_path        = "checkpoint/CoMoVi/diffusion_pytorch_model.safetensors"
     transformer_high_path   = None
     vae_path                = None
     lora_path               = None

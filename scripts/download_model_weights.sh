@@ -36,7 +36,6 @@ if [[ "$SOURCE" != "modelscope" && "$SOURCE" != "huggingface" ]]; then
 fi
 
 mkdir -p ./checkpoint/Wan2.2-TI2V-5B
-
 if [[ "$SOURCE" == "modelscope" ]]; then
     echo "Downloading from ModelScope..."
     modelscope download --model Wan-AI/Wan2.2-TI2V-5B --local_dir ./checkpoint/Wan2.2-TI2V-5B/
@@ -45,4 +44,7 @@ elif [[ "$SOURCE" == "huggingface" ]]; then
     hf download Wan-AI/Wan2.2-TI2V-5B --local-dir ./checkpoint/Wan2.2-TI2V-5B/
 fi
 
-echo "Download complete. Weights saved to ./checkpoint/Wan2.2-TI2V-5B/"
+mkdir -p ./checkpoint/CoMoVi
+hf download AfterJourney/CoMoVi --local-dir ./checkpoint/CoMoVi/
+
+echo "Download complete. Weights saved to ./checkpoint/"
