@@ -101,10 +101,10 @@ Check inference inputs and outputs in `./example/inference/`:
       </td>
   <tr>
       <td>
-          <video src="./assets/example_output_high_plank.mp4" width="100%" controls preload loop></video>
+          <video src="https://github.com/user-attachments/assets/b8213fec-4cc0-4684-9bb7-1ca8bf838e95" width="100%" controls preload loop></video>
       </td>
       <td>
-          <video src="./assets/example_output_dog_pose.mp4" width="100%" controls preload loop></video>
+          <video src="https://github.com/user-attachments/assets/74af168d-408d-405b-952b-c7706a317685" width="100%" controls preload loop></video>
       </td>
   <tr>
 </table>
