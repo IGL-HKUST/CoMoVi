@@ -1,0 +1,10 @@
+[
+  {
+    "rgb_path": "example/rgb.mp4",
+    "motion_path": "example/motion.mp4",
+    "first_frame": "example/first_frame.jpg",
+    "motion_first_frame": "example/motion_first_frame.jpg",
+    "text": "A woman in a red long-sleeved crop top and matching leggings holds a high plank position on a yoga mat.",
+    "type": "video"
+  }
+]

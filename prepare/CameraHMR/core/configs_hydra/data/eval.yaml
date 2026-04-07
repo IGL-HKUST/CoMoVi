@@ -1,0 +1,6 @@
+# @package _global_
+
+DATASETS:
+  DATASETS_AND_RATIOS: 
+  VAL_DATASETS: emdb-smpl_3dpw-test-cam-smpl_spec-test-smpl_rich-smplx_coco-val-smpl
+

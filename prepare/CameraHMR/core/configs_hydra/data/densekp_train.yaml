@@ -1,0 +1,6 @@
+# @package _global_
+
+DATASETS:
+  DATASETS_AND_RATIOS: 'agora-body-bbox44_static-hdri-bbox44_zoom-suburbd-bbox44_closeup-suburba-bbox44_closeup-suburbb-bbox44_closeup-suburbc-bbox44_closeup-suburbd-bbox44_closeup-gym-bbox44_zoom-gym-bbox44_static-gym-bbox44_static-office-bbox44_orbit-office-bbox44_static-hdri-zoomed-bbox44_pitchup-stadium-bbox44_pitchdown-stadium-bbox44_static-hdri-bmi-bbox44_closeup-suburbb-bmi-bbox44_closeup-suburbc-bmi-bbox44_static-suburbd-bmi-bbox44_zoom-gym-bmi-bbox44_static-office-hair-bbox44_zoom-suburbd-hair-bbox44_static-gym-hair-bbox44_orbit-archviz-15-bbox44_orbit-archviz-19-bbox44_orbit-archviz-12-bbox44_orbit-archviz-10-bbox44'
+  VAL_DATASETS: 'emdb-smpl'
+
