@@ -13,7 +13,7 @@
   <a href="https://scholar.google.com/citations?hl=en&user=nhbSplwAAAAJ" target="_blank">Chengwei Ren</a><sup>1</sup>,
   <a href="https://frank-zy-dou.github.io/" target="_blank">Zhiyang Dou</a><sup>4</sup>,
   <a href="https://chingswy.github.io/" target="_blank">Qing Shuai</a><sup>5</sup>,
-  <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a><sup>1 <i class="far fa-envelope"></i></sup>
+  <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a><sup>1,&dagger;</sup>
 </p>
 <p align="center">
   <sup>1</sup>HKUST &nbsp;&nbsp;
@@ -22,7 +22,7 @@
   <sup>4</sup>MIT &nbsp;&nbsp;
   <sup>5</sup>ZJU &nbsp;&nbsp;
   <br>
-  <i><sup><i class="far fa-envelope"></i></sup> Corresponding author</i>
+  <i><sup>&dagger;</i></sup>Corresponding author</i>
 </p>
 <p align="center">
   <a href="https://igl-hkust.github.io/CoMoVi/"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
