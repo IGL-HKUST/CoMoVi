@@ -122,7 +122,7 @@ Check inference inputs and outputs in `./example/inference/`:
 
 
 <details open>
-  <summary>Option-2: Pepare customized data step by step</summary>
+  <summary>Option-2: Prepare customized data step by step</summary>
   
   #### Install [Blender](https://www.blender.org/)
   ```bash
